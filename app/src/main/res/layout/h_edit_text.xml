@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
-  <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-      android:id="@+id/card_view"
+
+  <ImageView
+      android:scaleType="centerCrop"
+      tools:src="@drawable/ic_launcher"
+      android:layout_width="match_parent"
+      android:layout_height="200dp"
+      android:id="@+id/h_image"
+      android:layout_centerVertical="true" android:layout_alignParentStart="true"/>
+
+  <EditText
+      android:background="@android:color/white"
+      android:inputType="text"
+      android:imeOptions="actionSearch"
+      android:layout_margin="16dp"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      card_view:cardCornerRadius="4dp">
+      android:id="@+id/h_edittext"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true"/>
 
-    <AutoCompleteTextView
-        android:id="@+id/info_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-  </android.support.v7.widget.CardView>
-
-</LinearLayout>
+</RelativeLayout>

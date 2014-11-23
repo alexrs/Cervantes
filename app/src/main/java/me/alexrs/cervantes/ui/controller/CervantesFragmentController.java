@@ -6,11 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.path.android.jobqueue.JobManager;
 import de.greenrobot.event.EventBus;
-import java.util.ArrayList;
 import javax.inject.Inject;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Nebrija;
-import me.alexrs.cervantes.core.data.Word;
+import me.alexrs.cervantes.core.events.SearchEvent;
 import me.alexrs.cervantes.core.jobs.GetWordJob;
 import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
@@ -36,7 +35,6 @@ public class CervantesFragmentController extends FragmentController {
     View rootView = inflater.inflate(R.layout.f_main, container, false);
     mainPresenter.onCreateView(rootView);
     emptyViewPresenter.onCreateView(rootView);
-    jobManager.addJobInBackground(new GetWordJob("wHzIYMmRVDXX2tX1bpuy"));
     return rootView;
   }
 
@@ -61,5 +59,9 @@ public class CervantesFragmentController extends FragmentController {
   public void onEventMainThread(Nebrija nebrija) {
     emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
     mainPresenter.setWords(nebrija.getWords());
+  }
+
+  public void onEvent(SearchEvent searchEvent) {
+    jobManager.addJobInBackground(new GetWordJob(searchEvent.getSearch()));
   }
 }

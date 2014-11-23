@@ -7,12 +7,12 @@ import com.eowise.recyclerview.stickyheaders.StickyHeadersAdapter;
 import java.util.List;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Word;
-import me.alexrs.cervantes.ui.recyclerview.viewholder.HeadersViewHolder;
+import me.alexrs.cervantes.ui.recyclerview.viewholder.StickyHeadersViewHolder;
 
 /**
  * @author Alejandro on 23/11/14.
  */
-public class HeadersAdapter implements StickyHeadersAdapter<HeadersViewHolder> {
+public class HeadersAdapter implements StickyHeadersAdapter<StickyHeadersViewHolder> {
 
   private List<Word> items;
 
@@ -20,13 +20,13 @@ public class HeadersAdapter implements StickyHeadersAdapter<HeadersViewHolder> {
     this.items = items;
   }
 
-  @Override public HeadersViewHolder onCreateViewHolder(ViewGroup container) {
+  @Override public StickyHeadersViewHolder onCreateViewHolder(ViewGroup container) {
     View itemView =
         LayoutInflater.from(container.getContext()).inflate(R.layout.h_word, container, false);
-    return new HeadersViewHolder(itemView);
+    return new StickyHeadersViewHolder(itemView);
   }
 
-  @Override public void onBindViewHolder(HeadersViewHolder headersViewHolder, int i) {
+  @Override public void onBindViewHolder(StickyHeadersViewHolder headersViewHolder, int i) {
     headersViewHolder.title.setText(items.get(i).getWord());
   }
 
