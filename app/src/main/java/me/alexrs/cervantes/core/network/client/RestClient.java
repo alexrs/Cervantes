@@ -28,7 +28,7 @@ public class RestClient {
   private static void setupRestClient() {
     RestAdapter.Builder builder = new RestAdapter.Builder().setEndpoint(URL)
         .setClient(new OkClient(new OkHttpClient()))
-        .setLogLevel(RestAdapter.LogLevel.FULL);
+        .setLogLevel(RestAdapter.LogLevel.BASIC);
 
     RestAdapter restAdapter = builder.build();
     REST_CLIENT = restAdapter.create(NebrijaApi.class);

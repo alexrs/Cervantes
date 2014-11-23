@@ -1,7 +1,21 @@
+/*
+ * Copyright (C) 2014 Alejandro Rodriguez Salamanca.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package me.alexrs.cervantes.core.module;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import com.path.android.jobqueue.JobManager;
@@ -9,7 +23,6 @@ import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
 import me.alexrs.cervantes.core.application.CervantesApplication;
-import me.alexrs.cervantes.core.preferences.PreferencesManager;
 import me.alexrs.cervantes.ui.activity.BaseActivity;
 import me.alexrs.cervantes.ui.activity.CervantesActivity;
 import me.alexrs.cervantes.ui.controller.CervantesActivityController;
@@ -21,7 +34,7 @@ import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
 
 /**
- * @author Alejandro Rodriguez <alex95@gmil.com>
+ * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
 @Module(
     complete = false,
@@ -52,45 +65,12 @@ public class CervantesModule {
   }
 
   /**
-   * Provides a full singleton instance of Preferences Manager
-   *
-   * @param reader Preferences reader to inject
-   * @param editor Preferences editor to inject
-   * @return Singleton instance of the Preferences Manager
-   */
-  @Provides @Singleton public PreferencesManager providePreferencesManager(SharedPreferences reader,
-      SharedPreferences.Editor editor) {
-    return new PreferencesManager(reader, editor);
-  }
-
-  /**
    * Provides new Resources instance
    *
    * @param context Context to obtain the Resources form
    */
   @Singleton @Provides public Resources provideResources(Context context) {
     return context.getResources();
-  }
-
-  /**
-   * Provides a singleton Shared Preferences reader
-   *
-   * @param context Context of the Application to instantiate the preferences
-   * @return Singleton instance of the Shared Preferences reader
-   */
-  @Provides @Singleton public SharedPreferences providePreferences(Context context) {
-    return context.getSharedPreferences("", Context.MODE_PRIVATE);
-  }
-
-  /**
-   * Provides a singleton Shared Preferences editor
-   *
-   * @param preferences Preferences reader to add the editor from
-   * @return Singleton instance of the Shared Preferences editor
-   */
-  @Provides @Singleton public SharedPreferences.Editor providePreferencesEditor(
-      SharedPreferences preferences) {
-    return preferences.edit();
   }
 
   /**
