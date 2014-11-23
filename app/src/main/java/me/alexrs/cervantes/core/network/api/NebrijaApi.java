@@ -1,6 +1,6 @@
 package me.alexrs.cervantes.core.network.api;
 
-import me.alexrs.cervantes.core.datamodel.Nebrija;
+import me.alexrs.cervantes.core.data.Nebrija;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
@@ -9,12 +9,9 @@ import retrofit.http.Query;
  */
 public interface NebrijaApi {
 
-    @GET("/api/random?type=day")
-    Nebrija getDailyWord();
+  @GET("/api/random?type=day") Nebrija getDailyWord();
 
-    @GET("/api/random?type=random")
-    Nebrija getRandomWord();
+  @GET("/api/random?type=random") Nebrija getRandomWord();
 
-    @GET("/api/random")
-    Nebrija getWord(@Query("query") String word);
+  @GET("/api/") Nebrija getWord(@Query("query") String word);
 }

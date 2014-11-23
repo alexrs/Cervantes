@@ -4,9 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+  <Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="56dp">
+  </Toolbar>
+
+  <android.support.v7.widget.RecyclerView
+      android:clipToPadding="false"
+      android:layout_below="@+id/toolbar"
+      android:id="@+id/f_main_recyclerview"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
+
+  <include
+      layout="@layout/p_empty_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 
 </RelativeLayout>

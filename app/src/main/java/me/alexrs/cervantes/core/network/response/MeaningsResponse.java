@@ -7,17 +7,16 @@ import com.google.gson.annotations.SerializedName;
  */
 public class MeaningsResponse {
 
-    @SerializedName("word")
-    private String word;
-    @SerializedName("meta")
-    private String meta;
+  @SerializedName("word")
+  private String word;
+  @SerializedName("meta")
+  private String meta;
 
-    public String getWord() {
-        return word;
-    }
+  public String getWord() {
+    return word;
+  }
 
-    public String getMeta() {
-        return meta;
-    }
-
+  public String getMeta() {
+    return meta;
+  }
 }

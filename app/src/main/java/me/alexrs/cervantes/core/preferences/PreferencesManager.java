@@ -7,11 +7,11 @@ import android.content.SharedPreferences;
  */
 public class PreferencesManager {
 
-    private final SharedPreferences reader;
-    private final SharedPreferences.Editor editor;
+  private final SharedPreferences reader;
+  private final SharedPreferences.Editor editor;
 
-    public PreferencesManager(SharedPreferences reader, SharedPreferences.Editor editor) {
-        this.reader = reader;
-        this.editor = editor;
-    }
+  public PreferencesManager(SharedPreferences reader, SharedPreferences.Editor editor) {
+    this.reader = reader;
+    this.editor = editor;
+  }
 }
