@@ -25,6 +25,6 @@ import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 public class Header implements Renderable {
 
   @Override public int getRenderableId() {
-    return R.layout.h_edit_text;
+    return R.layout.h_search;
   }
 }

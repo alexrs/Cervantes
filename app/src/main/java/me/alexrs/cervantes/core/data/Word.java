@@ -18,11 +18,13 @@ package me.alexrs.cervantes.core.data;
 import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
 import java.util.List;
+import me.alexrs.cervantes.R;
+import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class Word {
+public class Word implements Renderable {
 
   @Expose
   private String word;
@@ -57,5 +59,9 @@ public class Word {
 
   public void setEtymology(String etymology) {
     this.etymology = etymology;
+  }
+
+  @Override public int getRenderableId() {
+    return R.layout.h_word;
   }
 }

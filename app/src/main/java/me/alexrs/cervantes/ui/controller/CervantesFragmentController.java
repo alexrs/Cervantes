@@ -50,12 +50,8 @@ public class CervantesFragmentController extends FragmentController {
     View rootView = inflater.inflate(R.layout.f_main, container, false);
     mainPresenter.onCreateView(rootView);
     emptyViewPresenter.onCreateView(rootView);
+    emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
     return rootView;
-  }
-
-  @Override
-  public void onViewCreated(View view, Bundle savedInstanceState) {
-    emptyViewPresenter.showView(EmptyViewPresenter.SHOW_PROGRESS);
   }
 
   @Override public void onStart() {
@@ -77,9 +73,10 @@ public class CervantesFragmentController extends FragmentController {
   }
 
   /**
-   * This method is called when the a search is done
+   * This method is called when a search is done
    */
   public void onEvent(SearchEvent searchEvent) {
+    emptyViewPresenter.showView(EmptyViewPresenter.SHOW_PROGRESS);
     jobManager.addJobInBackground(new GetWordJob(searchEvent.getSearch()));
   }
 }

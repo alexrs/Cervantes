@@ -13,28 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.ui.recyclerview.renderers;
+package me.alexrs.cervantes.ui.recyclerview.viewholder;
 
-import android.support.annotation.LayoutRes;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import me.alexrs.cervantes.ui.recyclerview.viewholder.MeaningViewHolder;
-import me.alexrs.recyclerviewrenderers.renderer.Renderer;
+import android.widget.TextView;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import me.alexrs.cervantes.R;
+import me.alexrs.cervantes.core.data.Meaning;
 import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
-
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class ItemMeaning extends Renderer {
+public class MeaningViewHolder extends RenderViewHolder<Meaning> {
 
-  public ItemMeaning(int id) {
-    super(id);
+  @InjectView(R.id.textView) TextView textView;
+
+  public MeaningViewHolder(View itemView) {
+    super(itemView);
+    ButterKnife.inject(this, itemView);
   }
 
-  @Override public RenderViewHolder onCreateViewHolder(ViewGroup viewGroup, @LayoutRes int id) {
-    View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(id, viewGroup, false);
-    return new MeaningViewHolder(itemView);
+  @Override public void onBindView(Meaning meaning) {
+    textView.setText(meaning.getMeaning());
   }
 }

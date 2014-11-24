@@ -13,31 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.ui.recyclerview.factory;
+package me.alexrs.cervantes.ui.recyclerview.renderers;
 
 import android.support.annotation.LayoutRes;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import me.alexrs.cervantes.R;
-import me.alexrs.cervantes.ui.recyclerview.renderers.ItemSearchHeader;
-import me.alexrs.cervantes.ui.recyclerview.renderers.ItemMeaning;
-import me.alexrs.cervantes.ui.recyclerview.renderers.ItemWordHeader;
-import me.alexrs.recyclerviewrenderers.interfaces.RendererFactory;
+import me.alexrs.cervantes.ui.recyclerview.viewholder.SearchHeaderViewHolder;
 import me.alexrs.recyclerviewrenderers.renderer.Renderer;
+import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
 
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class Factory implements RendererFactory {
+public class ItemSearchHeader extends Renderer {
 
-  @Override public Renderer getRenderer(@LayoutRes int id) {
-    switch (id){
-      case R.layout.i_meaning:
-        return new ItemMeaning(id);
-      case R.layout.h_search:
-        return new ItemSearchHeader(id);
-      case R.layout.h_word:
-        return new ItemWordHeader(id);
-    }
-    return null;
+  public ItemSearchHeader(@LayoutRes int id) {
+    super(id);
+  }
+
+  @Override public RenderViewHolder onCreateViewHolder(ViewGroup viewGroup, @LayoutRes int id) {
+    View itemView =
+        LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.h_search, viewGroup, false);
+    return new SearchHeaderViewHolder(itemView);
   }
 }

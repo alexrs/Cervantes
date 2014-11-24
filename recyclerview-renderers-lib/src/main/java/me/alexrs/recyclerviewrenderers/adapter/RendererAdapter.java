@@ -75,11 +75,6 @@ public class RendererAdapter extends RecyclerView.Adapter<RenderViewHolder> {
     }
 
     @Override
-    public long getItemId(int position) {
-        return super.getItemId(position);
-    }
-
-    @Override
     public void onViewRecycled(RenderViewHolder holder) {
         super.onViewRecycled(holder);
         holder.onViewRecycled();
