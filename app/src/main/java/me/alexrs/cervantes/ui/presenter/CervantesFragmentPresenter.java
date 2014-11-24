@@ -37,11 +37,9 @@ public class CervantesFragmentPresenter extends CervantesBasePresenter {
 
   private List<Renderable> items = new ArrayList<Renderable>();
   private RendererAdapter adapter;
-  //  private StickyHeadersBuilder headerBuilder;
 
   @Override
   public void hookUpListeners() {
-
     LinearLayoutManager layoutManager = new LinearLayoutManager(context);
     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
     recyclerView.setLayoutManager(layoutManager);
@@ -49,10 +47,6 @@ public class CervantesFragmentPresenter extends CervantesBasePresenter {
     adapter = new RendererAdapter(items, new RendererBuilder(new Factory()));
     adapter.setHasStableIds(true);
     recyclerView.setAdapter(adapter);
-
-    //   headerBuilder = new StickyHeadersBuilder();
-    //    headerBuilder.setAdapter(adapter);
-    //   headerBuilder.setRecyclerView(recyclerView);
   }
 
   @Override
@@ -61,10 +55,6 @@ public class CervantesFragmentPresenter extends CervantesBasePresenter {
   }
 
   public void setWords(List<Word> words) {
-    // List<Meaning> meanings = getMeanings(words);
-    // StickyHeadersItemDecoration header =
-    //     headerBuilder.setStickyHeadersAdapter(new HeadersAdapter(words, meanings)).build();
-    // recyclerView.addItemDecoration(header);
     removeItems();
     items.addAll(getMeanings(words));
     adapter.notifyDataSetChanged();
