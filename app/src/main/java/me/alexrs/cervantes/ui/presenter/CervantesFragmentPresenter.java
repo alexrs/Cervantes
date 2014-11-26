@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Header;
+import me.alexrs.cervantes.core.data.MultipleResponseWord;
 import me.alexrs.cervantes.core.data.Word;
 import me.alexrs.cervantes.ui.recyclerview.factory.Factory;
 import me.alexrs.recyclerviewrenderers.adapter.RendererAdapter;
@@ -85,5 +86,15 @@ public class CervantesFragmentPresenter extends BasePresenter {
       meanings.addAll(word.getMeanings());
     }
     return meanings;
+  }
+
+  public void setWordsMultiple(List<Word> words) {
+    removeItems();
+    items.add(
+        new Word(recyclerView.getContext().getResources().getString(R.string.multiple_response)));
+    for (Word word : words) {
+      items.add(new MultipleResponseWord(word));
+    }
+    adapter.notifyDataSetChanged();
   }
 }

@@ -28,6 +28,7 @@ import me.alexrs.cervantes.core.events.SearchEvent;
 import me.alexrs.cervantes.core.events.SearchFailed;
 import me.alexrs.cervantes.core.events.SearchPerformed;
 import me.alexrs.cervantes.core.jobs.GetWordJob;
+import me.alexrs.cervantes.core.utils.NebrijaType;
 import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
 
@@ -71,7 +72,11 @@ public class CervantesFragmentController extends FragmentController {
    */
   public void onEventMainThread(Nebrija nebrija) {
     emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
-    mainPresenter.setWords(nebrija.getWords());
+    if (nebrija.getType().equals(NebrijaType.SINGLE)) {
+      mainPresenter.setWords(nebrija.getWords());
+    } else {
+        mainPresenter.setWordsMultiple(nebrija.getWords());
+    }
   }
 
   /**

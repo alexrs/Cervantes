@@ -17,12 +17,12 @@ package me.alexrs.cervantes.ui.recyclerview.factory;
 
 import android.support.annotation.LayoutRes;
 import me.alexrs.cervantes.R;
-import me.alexrs.cervantes.ui.recyclerview.renderers.ItemSearchHeader;
 import me.alexrs.cervantes.ui.recyclerview.renderers.ItemMeaning;
+import me.alexrs.cervantes.ui.recyclerview.renderers.ItemMultipleWords;
+import me.alexrs.cervantes.ui.recyclerview.renderers.ItemSearchHeader;
 import me.alexrs.cervantes.ui.recyclerview.renderers.ItemWordHeader;
 import me.alexrs.recyclerviewrenderers.interfaces.RendererFactory;
 import me.alexrs.recyclerviewrenderers.renderer.Renderer;
-
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
@@ -30,13 +30,15 @@ import me.alexrs.recyclerviewrenderers.renderer.Renderer;
 public class Factory implements RendererFactory {
 
   @Override public Renderer getRenderer(@LayoutRes int id) {
-    switch (id){
+    switch (id) {
       case R.layout.i_meaning:
         return new ItemMeaning(id);
       case R.layout.h_search:
         return new ItemSearchHeader(id);
       case R.layout.h_word:
         return new ItemWordHeader(id);
+      case R.layout.i_multiple_words:
+        return new ItemMultipleWords(id);
     }
     return null;
   }

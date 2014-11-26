@@ -25,6 +25,8 @@ import me.alexrs.cervantes.core.network.client.RestClient;
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
+ *
+ *         Job that permorm a request to get the meanign of a word
  */
 public class GetWordJob extends Job {
 
@@ -32,7 +34,7 @@ public class GetWordJob extends Job {
   private final String word;
 
   public GetWordJob(String word) {
-    super(new Params(PRIORITY).requireNetwork().persist());
+    super(new Params(PRIORITY).requireNetwork());
     this.word = word;
   }
 
@@ -54,6 +56,7 @@ public class GetWordJob extends Job {
 
   @Override
   protected boolean shouldReRunOnThrowable(Throwable throwable) {
+    EventBus.getDefault().post(new SearchFailed());
     return false;
   }
 }

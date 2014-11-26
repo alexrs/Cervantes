@@ -32,9 +32,11 @@ public class Word implements Renderable {
   private List<Meaning> meanings = new ArrayList<Meaning>();
   @Expose
   private String etymology;
+  @Expose
+  private String id;
 
-  public Word(String etymology) {
-    this.etymology = etymology;
+  public Word(String word) {
+    this.word = word;
   }
 
   public String getWord() {
@@ -59,6 +61,10 @@ public class Word implements Renderable {
 
   public void setEtymology(String etymology) {
     this.etymology = etymology;
+  }
+
+  public String getId() {
+    return id;
   }
 
   @Override public int getRenderableId() {
