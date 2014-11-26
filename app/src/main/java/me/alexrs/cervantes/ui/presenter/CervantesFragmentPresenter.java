@@ -48,18 +48,6 @@ public class CervantesFragmentPresenter extends BasePresenter {
     adapter = new RendererAdapter(items, new RendererBuilder(new Factory()));
     adapter.setHasStableIds(true);
     recyclerView.setAdapter(adapter);
-
-    //TODO: refactor this.
-    recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-
-      @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-        super.onScrollStateChanged(recyclerView, newState);
-      }
-
-      @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-        super.onScrolled(recyclerView, dx, dy);
-      }
-    });
   }
 
   public void setWords(List<Word> words) {
