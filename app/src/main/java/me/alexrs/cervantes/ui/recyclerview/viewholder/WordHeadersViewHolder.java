@@ -38,7 +38,11 @@ public class WordHeadersViewHolder extends RenderViewHolder<Word> {
   }
 
   @Override public void onBindView(Word word) {
-    title.setText(word.getWord().replace("~", Prefs.with(title.getContext()).getString("WORD", "~")));
-    subtitle.setText(word.getEtymology());
+    title.setText(
+        word.getWord().replace("~", Prefs.with(title.getContext()).getString("WORD", "~")));
+    if (word.getEtymology() != null) {
+      subtitle.setText(word.getEtymology());
+      subtitle.setVisibility(View.VISIBLE);
+    }
   }
 }
