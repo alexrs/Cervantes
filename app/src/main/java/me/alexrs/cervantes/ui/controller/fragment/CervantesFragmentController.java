@@ -25,6 +25,8 @@ import javax.inject.Inject;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Nebrija;
 import me.alexrs.cervantes.core.events.SearchEvent;
+import me.alexrs.cervantes.core.events.SearchFailed;
+import me.alexrs.cervantes.core.events.SearchPerformed;
 import me.alexrs.cervantes.core.jobs.GetWordJob;
 import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
@@ -76,7 +78,15 @@ public class CervantesFragmentController extends FragmentController {
    * This method is called when a search is done
    */
   public void onEvent(SearchEvent searchEvent) {
-    emptyViewPresenter.showView(EmptyViewPresenter.SHOW_PROGRESS);
+    mainPresenter.removeItems();
     jobManager.addJobInBackground(new GetWordJob(searchEvent.getSearch()));
+  }
+
+  public void onEventMainThread(SearchPerformed searchPerformed) {
+    emptyViewPresenter.showView(EmptyViewPresenter.SHOW_PROGRESS);
+  }
+
+  public void onEventMainThread(SearchFailed searchFailed) {
+    emptyViewPresenter.showView(EmptyViewPresenter.SHOW_ERROR);
   }
 }

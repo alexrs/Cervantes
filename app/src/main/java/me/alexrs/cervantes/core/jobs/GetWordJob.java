@@ -19,9 +19,9 @@ import com.path.android.jobqueue.Job;
 import com.path.android.jobqueue.Params;
 import de.greenrobot.event.EventBus;
 import me.alexrs.cervantes.core.data.Nebrija;
-import me.alexrs.cervantes.core.network.api.NebrijaApi;
+import me.alexrs.cervantes.core.events.SearchFailed;
+import me.alexrs.cervantes.core.events.SearchPerformed;
 import me.alexrs.cervantes.core.network.client.RestClient;
-import retrofit.RestAdapter;
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
@@ -38,6 +38,7 @@ public class GetWordJob extends Job {
 
   @Override
   public void onAdded() {
+    EventBus.getDefault().post(new SearchPerformed());
   }
 
   @Override
@@ -48,7 +49,7 @@ public class GetWordJob extends Job {
 
   @Override
   protected void onCancel() {
-
+    EventBus.getDefault().post(new SearchFailed());
   }
 
   @Override

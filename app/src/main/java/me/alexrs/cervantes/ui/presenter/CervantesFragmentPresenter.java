@@ -70,10 +70,11 @@ public class CervantesFragmentPresenter extends BasePresenter {
   /**
    * Remove list items, but not the header
    */
-  private void removeItems() {
+  public void removeItems() {
     int size = items.size();
     for (int i = 1; i < size; i++) {
       items.remove(1);
+      adapter.notifyItemRemoved(1);
     }
   }
 
