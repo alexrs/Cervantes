@@ -13,18 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.ui.controller;
+package me.alexrs.cervantes.ui.controller.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import me.alexrs.cervantes.ui.controller.fragment.AbsFragmentController;
 
 /**
  * @author Alejandro Rodríguez <https://github.com/Alexrs95/Cervantes>
  *
- *         Abstract class that implements {@see me.alexrs.cervantes.ui.controller.AbsFragmentController}
+ *         Abstract class that implements {@see me.alexrs.cervantes.ui.controller.fragment.AbsFragmentController}
  *
  *         The Fragment controllers must extends this class and override the methods you want to
  *         use

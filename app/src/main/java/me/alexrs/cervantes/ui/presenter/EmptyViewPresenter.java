@@ -27,7 +27,7 @@ import me.alexrs.cervantes.R;
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class EmptyViewPresenter extends CervantesBasePresenter {
+public class EmptyViewPresenter extends BasePresenter {
 
   @InjectView(R.id.progressBar) ProgressBar progressBar;
   @InjectView(R.id.l_error) LinearLayout lError;
@@ -80,11 +80,7 @@ public class EmptyViewPresenter extends CervantesBasePresenter {
   public void retry() {
   }
 
-  @Override
-  public void hookUpListeners() {
-  }
+  @Override public void onBindView() {
 
-  @Override
-  public void onViewCreated() {
   }
 }

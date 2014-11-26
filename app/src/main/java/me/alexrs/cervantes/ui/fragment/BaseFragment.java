@@ -22,9 +22,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import me.alexrs.cervantes.core.application.CervantesApplication;
-import me.alexrs.cervantes.ui.controller.ActivityController;
-import me.alexrs.cervantes.ui.controller.FragmentController;
+import me.alexrs.cervantes.ui.controller.fragment.FragmentController;
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>

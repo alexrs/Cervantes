@@ -31,27 +31,34 @@ import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class CervantesFragmentPresenter extends CervantesBasePresenter {
+public class CervantesFragmentPresenter extends BasePresenter {
 
   @InjectView(R.id.f_main_recyclerview) RecyclerView recyclerView;
 
   private List<Renderable> items = new ArrayList<Renderable>();
   private RendererAdapter adapter;
 
-  @Override
-  public void hookUpListeners() {
+  @Override public void onBindView() {
     LinearLayoutManager layoutManager = new LinearLayoutManager(context);
     layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
     recyclerView.setLayoutManager(layoutManager);
+    recyclerView.setHasFixedSize(false);
     items.add(new Header());
     adapter = new RendererAdapter(items, new RendererBuilder(new Factory()));
     adapter.setHasStableIds(true);
     recyclerView.setAdapter(adapter);
-  }
 
-  @Override
-  public void onViewCreated() {
-    //
+    //TODO: refactor this.
+    recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+      @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        super.onScrollStateChanged(recyclerView, newState);
+      }
+
+      @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        super.onScrolled(recyclerView, dx, dy);
+      }
+    });
   }
 
   public void setWords(List<Word> words) {

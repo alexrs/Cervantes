@@ -13,45 +13,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.ui.controller;
+package me.alexrs.cervantes.ui.controller.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * @author Alejandro Rodríguez <https://github.com/Alexrs95/Cervantes>
  *
- *         Abstract class that implements {@see me.alexrs.cervantes.ui.controller.AbsAbsActivityController}
- *
- *         The Actitity controllers must extends this class and override the methods you want to
- *         use
+ *         In this interface are declared the method of the Fragment lifecycle
  */
-public abstract class ActivityController implements AbsActivityController {
+public interface AbsFragmentController {
 
-  @Override public void onCreate(Bundle savedInstanceState) {
+  void onAttach(Activity activity);
 
-  }
+  void onCreate(Bundle savedInstanceState);
 
-  @Override public void onDestroy() {
+  View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle id);
 
-  }
+  void onViewCreated(View view, Bundle savedInstanceState);
 
-  @Override public void onPause() {
+  void onActivityCreated(Bundle savedInstanceState);
 
-  }
+  void onStart();
 
-  @Override public void onRestart() {
+  void onResume();
 
-  }
+  void onPause();
 
-  @Override public void onResume() {
+  void onDestroyView();
 
-  }
+  void onDestroy();
 
-  @Override public void onStart() {
+  void onDetach();
 
-  }
-
-  @Override public void onStop() {
-
-  }
+  void onStop();
 }

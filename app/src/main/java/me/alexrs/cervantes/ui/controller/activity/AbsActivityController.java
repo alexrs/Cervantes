@@ -13,25 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.core.network.response;
+package me.alexrs.cervantes.ui.controller.activity;
 
-import com.google.gson.annotations.SerializedName;
+import android.os.Bundle;
 
 /**
- * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
+ * @author Alejandro Rodríguez <https://github.com/Alexrs95/Cervantes>
+ *
+ *         In this interface are declared the methods of the Activity lifecyle
  */
-public class MeaningsResponse {
+public interface AbsActivityController {
 
-  @SerializedName("word")
-  private String word;
-  @SerializedName("meta")
-  private String meta;
+  void onCreate(Bundle savedInstanceState);
 
-  public String getWord() {
-    return word;
-  }
+  void onStart();
 
-  public String getMeta() {
-    return meta;
-  }
+  void onResume();
+
+  void onPause();
+
+  void onRestart();
+
+  void onDestroy();
+
+  void onStop();
 }

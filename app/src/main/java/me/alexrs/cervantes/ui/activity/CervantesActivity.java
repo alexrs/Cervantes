@@ -19,7 +19,7 @@ import android.os.Bundle;
 import javax.inject.Inject;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.application.CervantesApplication;
-import me.alexrs.cervantes.ui.controller.CervantesActivityController;
+import me.alexrs.cervantes.ui.controller.activity.CervantesActivityController;
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>

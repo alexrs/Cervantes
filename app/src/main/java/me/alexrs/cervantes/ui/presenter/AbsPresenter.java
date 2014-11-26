@@ -24,7 +24,5 @@ public interface AbsPresenter {
 
   void onCreateView(View view);
 
-  void hookUpListeners();
-
-  void onViewCreated();
+  void onBindView();
 }

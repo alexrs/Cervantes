@@ -17,7 +17,7 @@ package me.alexrs.cervantes.ui.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import me.alexrs.cervantes.ui.controller.ActivityController;
+import me.alexrs.cervantes.ui.controller.activity.ActivityController;
 
 /**
  * @author Alejandro Rodríguez <https://github.com/Alexrs95/Cervantes>

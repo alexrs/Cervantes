@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.alexrs.cervantes.ui.controller;
+package me.alexrs.cervantes.ui.controller.activity;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
