@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Word;
+import me.alexrs.prefs.lib.Prefs;
 import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
 
 /**
@@ -37,7 +38,7 @@ public class WordHeadersViewHolder extends RenderViewHolder<Word> {
   }
 
   @Override public void onBindView(Word word) {
-    title.setText(word.getWord());
+    title.setText(word.getWord().replace("~", Prefs.with(title.getContext()).getString("WORD", "~")));
     subtitle.setText(word.getEtymology());
   }
 }

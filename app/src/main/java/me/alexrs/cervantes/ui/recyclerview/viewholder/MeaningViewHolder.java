@@ -15,12 +15,15 @@
  */
 package me.alexrs.cervantes.ui.recyclerview.viewholder;
 
+import android.graphics.Typeface;
+import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.data.Meaning;
+import me.alexrs.cervantes.core.utils.Truss;
 import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
 
 /**
@@ -28,7 +31,7 @@ import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
  */
 public class MeaningViewHolder extends RenderViewHolder<Meaning> {
 
-  @InjectView(R.id.textView) TextView textView;
+  @InjectView(R.id.tv_meaning) TextView textView;
 
   public MeaningViewHolder(View itemView) {
     super(itemView);
@@ -36,6 +39,13 @@ public class MeaningViewHolder extends RenderViewHolder<Meaning> {
   }
 
   @Override public void onBindView(Meaning meaning) {
-    textView.setText(meaning.getMeaning());
+
+    Truss t = new Truss();
+    if (meaning.getMeta() != null) {
+      t.pushSpan(new StyleSpan(Typeface.BOLD_ITALIC)).append(meaning.getMeta()).popSpan();
+    }
+    t.append(" ").append(meaning.getMeaning());
+
+    textView.setText(t.build());
   }
 }

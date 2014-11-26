@@ -28,14 +28,15 @@ import com.squareup.picasso.Picasso;
 import de.greenrobot.event.EventBus;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.events.SearchEvent;
+import me.alexrs.prefs.lib.Prefs;
 import me.alexrs.recyclerviewrenderers.interfaces.Renderable;
 import me.alexrs.recyclerviewrenderers.viewholder.RenderViewHolder;
-
 
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class SearchHeaderViewHolder extends RenderViewHolder implements TextView.OnEditorActionListener {
+public class SearchHeaderViewHolder extends RenderViewHolder
+    implements TextView.OnEditorActionListener {
 
   private final Context context;
   @InjectView(R.id.h_image) ImageView header_image;
@@ -54,6 +55,7 @@ public class SearchHeaderViewHolder extends RenderViewHolder implements TextView
 
   @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+      Prefs.with(header_editText.getContext()).save("WORD", header_editText.getText().toString());
       EventBus.getDefault().post(new SearchEvent(header_editText.getText().toString()));
       return true;
     }

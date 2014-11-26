@@ -3,17 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="8dp"
-    android:background="@android:color/holo_orange_light">
+    android:elevation="5dp"
+    android:background="@color/colorPrimaryDark">
 
   <TextView
+      android:textStyle="bold"
+      android:textColor="@android:color/white"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       tools:text="HEADER"
       android:textAllCaps="true"
       android:id="@+id/h_word_title"/>
   <TextView
+      android:textStyle="italic"
+      android:textColor="@android:color/white"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       tools:text="New Text"

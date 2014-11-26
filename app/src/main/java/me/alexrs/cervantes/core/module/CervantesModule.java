@@ -29,7 +29,6 @@ import me.alexrs.cervantes.ui.controller.activity.CervantesActivityController;
 import me.alexrs.cervantes.ui.controller.fragment.CervantesFragmentController;
 import me.alexrs.cervantes.ui.fragment.BaseFragment;
 import me.alexrs.cervantes.ui.fragment.CervantesFragment;
-import me.alexrs.cervantes.ui.presenter.CervantesActivityPresenter;
 import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
 
@@ -86,17 +85,12 @@ public class CervantesModule {
     return new EmptyViewPresenter();
   }
 
-  @Provides public CervantesActivityPresenter provideMainActivityPresenter() {
-    return new CervantesActivityPresenter();
-  }
-
   @Provides public CervantesFragmentPresenter provideMainPresenter() {
     return new CervantesFragmentPresenter();
   }
 
-  @Provides public CervantesActivityController provideMainActivityController(
-      CervantesActivityPresenter presenter) {
-    return new CervantesActivityController(presenter);
+  @Provides public CervantesActivityController provideMainActivityController() {
+    return new CervantesActivityController();
   }
 
   @Provides public CervantesFragmentController provideMainController(
