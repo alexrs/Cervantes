@@ -16,12 +16,9 @@
 package me.alexrs.cervantes.ui.presenter;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.InjectView;
-import butterknife.OnClick;
 import me.alexrs.cervantes.R;
 
 /**
@@ -30,9 +27,7 @@ import me.alexrs.cervantes.R;
 public class EmptyViewPresenter extends BasePresenter {
 
   @InjectView(R.id.progressBar) ProgressBar progressBar;
-  @InjectView(R.id.l_error) LinearLayout lError;
-  @InjectView(R.id.tv_meaning) TextView tvError;
-  @InjectView(R.id.bt_error) Button btError;
+  @InjectView(R.id.tv_error) TextView tvError;
 
   /**
    * Constant code for show progress
@@ -54,15 +49,15 @@ public class EmptyViewPresenter extends BasePresenter {
   public void showView(int view) {
     switch (view) {
       case SHOW_PROGRESS:
-        lError.setVisibility(View.GONE);
+        tvError.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
         break;
       case SHOW_ERROR:
-        lError.setVisibility(View.VISIBLE);
+        tvError.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
         break;
       case HIDE:
-        lError.setVisibility(View.GONE);
+        tvError.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
         break;
     }
@@ -70,14 +65,6 @@ public class EmptyViewPresenter extends BasePresenter {
 
   public void setErrorText(String error) {
     tvError.setText(error);
-  }
-
-  public void setErrorButtonText(String error) {
-    btError.setText(error);
-  }
-
-  @OnClick(R.id.bt_error)
-  public void retry() {
   }
 
   @Override public void onBindView() {

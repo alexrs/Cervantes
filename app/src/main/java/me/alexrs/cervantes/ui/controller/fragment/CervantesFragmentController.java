@@ -54,8 +54,7 @@ public class CervantesFragmentController extends FragmentController {
     View rootView = inflater.inflate(R.layout.f_main, container, false);
     mainPresenter.onCreateView(rootView);
     emptyViewPresenter.onCreateView(rootView);
-    emptyViewPresenter.setErrorText(":(");
-    emptyViewPresenter.setErrorButtonText(":(");
+    emptyViewPresenter.setErrorText(rootView.getContext().getString(R.string.error_message));
     emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
     return rootView;
   }

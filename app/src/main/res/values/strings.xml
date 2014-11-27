@@ -3,5 +3,6 @@
 
   <string name="app_name">Cervantes</string>
   <string name="multiple_response">Estás buscando...</string>
+  <string name="error_message">Algo ha ido mal...</string>
 
 </resources>
