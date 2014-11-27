@@ -18,7 +18,7 @@ package me.alexrs.cervantes.core.utils;
 /**
  * @author Alejandro Rodriguez <https://github.com/Alexrs95/Cervantes>
  */
-public class NebrijaType {
-  public static final String MULTIPLE = "multiple";
-  public static final String SINGLE = "single";
+public class NebrijaStatus {
+  public static final String SUCCESS = "success";
+  public static final String ERROR = "error";
 }

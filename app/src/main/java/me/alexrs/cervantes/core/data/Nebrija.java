@@ -31,6 +31,8 @@ public class Nebrija {
   private String type;
   @Expose @SerializedName("response")
   private List<Word> words = new ArrayList<Word>();
+  @Expose
+  private String message;
 
   public String getStatus() {
     return status;
@@ -54,5 +56,9 @@ public class Nebrija {
 
   public void setWords(List<Word> words) {
     this.words = words;
+  }
+
+  public String getMessage() {
+    return message;
   }
 }

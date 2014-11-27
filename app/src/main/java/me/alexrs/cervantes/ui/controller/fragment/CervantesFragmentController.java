@@ -28,6 +28,7 @@ import me.alexrs.cervantes.core.events.SearchEvent;
 import me.alexrs.cervantes.core.events.SearchFailed;
 import me.alexrs.cervantes.core.events.SearchPerformed;
 import me.alexrs.cervantes.core.jobs.GetWordJob;
+import me.alexrs.cervantes.core.utils.NebrijaStatus;
 import me.alexrs.cervantes.core.utils.NebrijaType;
 import me.alexrs.cervantes.ui.presenter.CervantesFragmentPresenter;
 import me.alexrs.cervantes.ui.presenter.EmptyViewPresenter;
@@ -53,6 +54,8 @@ public class CervantesFragmentController extends FragmentController {
     View rootView = inflater.inflate(R.layout.f_main, container, false);
     mainPresenter.onCreateView(rootView);
     emptyViewPresenter.onCreateView(rootView);
+    emptyViewPresenter.setErrorText(":(");
+    emptyViewPresenter.setErrorButtonText(":(");
     emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
     return rootView;
   }
@@ -71,11 +74,15 @@ public class CervantesFragmentController extends FragmentController {
    * This method is called when the response is received
    */
   public void onEventMainThread(Nebrija nebrija) {
-    emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
-    if (nebrija.getType().equals(NebrijaType.SINGLE)) {
-      mainPresenter.setWords(nebrija.getWords());
-    } else {
+    if (nebrija.getStatus().equals(NebrijaStatus.SUCCESS)) {
+      emptyViewPresenter.showView(EmptyViewPresenter.HIDE);
+      if (nebrija.getType().equals(NebrijaType.SINGLE)) {
+        mainPresenter.setWords(nebrija.getWords());
+      } else {
         mainPresenter.setWordsMultiple(nebrija.getWords());
+      }
+    } else {
+      emptyViewPresenter.showView(EmptyViewPresenter.SHOW_ERROR);
     }
   }
 

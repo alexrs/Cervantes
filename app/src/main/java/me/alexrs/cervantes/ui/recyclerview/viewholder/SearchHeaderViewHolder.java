@@ -19,6 +19,7 @@ import android.content.Context;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -55,10 +56,18 @@ public class SearchHeaderViewHolder extends RenderViewHolder
 
   @Override public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
     if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+      hideKeyboard();
       Prefs.with(header_editText.getContext()).save("WORD", header_editText.getText().toString());
       EventBus.getDefault().post(new SearchEvent(header_editText.getText().toString()));
       return true;
     }
     return false;
+  }
+
+  private void hideKeyboard() {
+    header_editText.clearFocus();
+    InputMethodManager in = (InputMethodManager) header_editText.getContext()
+        .getSystemService(Context.INPUT_METHOD_SERVICE);
+    in.hideSoftInputFromWindow(header_editText.getWindowToken(), 0);
   }
 }
