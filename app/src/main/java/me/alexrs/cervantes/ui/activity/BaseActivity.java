@@ -15,14 +15,14 @@
  */
 package me.alexrs.cervantes.ui.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import me.alexrs.cervantes.ui.controller.activity.ActivityController;
 
 /**
  * @author Alejandro Rodríguez <https://github.com/Alexrs95/Cervantes>
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends ActionBarActivity {
 
   private ActivityController activityController;
 

@@ -16,6 +16,7 @@
 package me.alexrs.cervantes.ui.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import javax.inject.Inject;
 import me.alexrs.cervantes.R;
 import me.alexrs.cervantes.core.application.CervantesApplication;
@@ -37,5 +38,7 @@ public class CervantesActivity extends BaseActivity {
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.a_main);
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
   }
 }
