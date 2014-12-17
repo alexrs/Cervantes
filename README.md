@@ -1,6 +1,8 @@
 Cervantes
 =========
 
+###The API does not work :(
+
 Android app using https://github.com/javierhonduco/nebrija
 
 **UNDER CONSTRUCTION**
@@ -16,5 +18,3 @@ Android app using https://github.com/javierhonduco/nebrija
 4. Configuration changes (rotate device).
 
 5. Fix bugs.
-
-6. Upload RecyclerViewRenderers to JCenter
