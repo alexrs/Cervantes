@@ -1,8 +1,6 @@
 Cervantes
 =========
 
-###The API does not work :(
-
 Android app using https://github.com/javierhonduco/nebrija
 
 **UNDER CONSTRUCTION**
